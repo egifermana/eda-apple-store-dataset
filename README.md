@@ -1,6 +1,6 @@
 # SQL Exploratory Data Analysis on Apple Store Dataset
 
-![SQL Preview](Screenshot.png)
+![SQL Preview](Screenshot.jpg)
 ## Overview
 This repository contains an exploratory data analysis (EDA) on Apple Store Apps data using SQL. The analysis includes various SQL queries to gain insights into the dataset, such as checking missing values, exploring the distribution of app genres, reviewing app ratings, and more.
 
