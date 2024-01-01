@@ -1,4 +1,4 @@
-# SQL Exploratory Data Analysis on Apple Store Dataset
+# Exploratory Data Analysis on Apple Store Dataset
 
 ![SQL Preview](Screenshot.jpg)
 
