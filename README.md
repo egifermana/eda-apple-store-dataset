@@ -1,6 +1,7 @@
 # SQL Exploratory Data Analysis on Apple Store Dataset
 
 ![SQL Preview](Screenshot.jpg)
+
 ## Overview
 This repository contains an exploratory data analysis (EDA) on Apple Store Apps data using SQL. The analysis includes various SQL queries to gain insights into the dataset, such as checking missing values, exploring the distribution of app genres, reviewing app ratings, and more.
 
@@ -167,13 +168,13 @@ Determine whether paid apps have higher ratings than free apps.
 SELECT CASE
            WHEN price > 0 THEN 'Paid'
            ELSE 'Free'
-       END as App_Type,
-       AVG(user_rating) as Avg_Rating
+       END as app_type,
+       AVG(user_rating) as avg_rating
 FROM AppleStore
 GROUP BY App_Type;
 ```
 Output:
-| App_Type | Avg_Rating              |
+| app_type | avg_rating              |
 |----------|-------------------------|
 | Free     | 3.3767258382642997     |
 | Paid     | 3.720948742438714      |
@@ -187,13 +188,13 @@ SELECT CASE
            WHEN lang_num BETWEEN 10 AND 30 THEN '10-30 Languages'
            ELSE '>30 Languages'
        END as language_bucket,
-       AVG(user_rating) as Avg_Rating
+       AVG(user_rating) as avg_rating
 FROM AppleStore
 GROUP BY language_bucket
-ORDER BY Avg_Rating DESC;
+ORDER BY avg_rating DESC;
 ```
 Output:
-| language_bucket    | Avg_Rating            |
+| language_bucket    | avg_rating            |
 |-------------------- |-----------------------|
 | 10-30 Languages    | 4.1305120910384066   |
 | >30 Languages      | 3.7777777777777777   |
@@ -203,14 +204,14 @@ Output:
 Identify genres with low average ratings in the `AppleStore` table.
 
 ```sql
-SELECT prime_genre, AVG(user_rating) as Avg_Rating
+SELECT prime_genre, AVG(user_rating) as avg_rating
 FROM AppleStore
 GROUP BY prime_genre
-ORDER BY Avg_Rating DESC
+ORDER BY avg_rating DESC
 LIMIT 10;
 ```
 Output:
-| prime_genre        | Avg_Rating           |
+| prime_genre        | avg_rating           |
 |--------------------|----------------------|
 | Productivity       | 4.00561797752809    |
 | Music              | 3.9782608695652173  |
@@ -238,7 +239,7 @@ GROUP BY description_length_bucket
 ORDER BY average_rating DESC;
 ```
 Output:
-| Description Length Bucket | Average Rating         |
+| description_length_bucket | average_rating         |
 |---------------------------|------------------------|
 | Long                      | 3.855946944988041     |
 | Medium                    | 3.232809430255403     |
