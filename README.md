@@ -64,11 +64,11 @@ Find out the number of apps per genre in the `AppleStore` table.
 ```sql
 SELECT prime_genre, COUNT(*) as NumApps
 FROM AppleStore
-GROUP BY prime_genre
+GROUP BY PrimeGenre
 ORDER BY NumApps DESC;
 ```
 Output:
-| prime_genre        | NumApp |
+| PrimeGenre        | NumApp |
 |--------------------|--------|
 | Games              | 3862   |
 | Entertainment      | 535    |
@@ -168,13 +168,13 @@ Determine whether paid apps have higher ratings than free apps.
 SELECT CASE
            WHEN price > 0 THEN 'Paid'
            ELSE 'Free'
-       END as app_type,
-       AVG(user_rating) as avg_rating
+       END as AppType,
+       AVG(user_rating) as AvgRating
 FROM AppleStore
 GROUP BY App_Type;
 ```
 Output:
-| app_type | avg_rating              |
+| AppType | AvgRating              |
 |----------|-------------------------|
 | Free     | 3.3767258382642997     |
 | Paid     | 3.720948742438714      |
@@ -187,14 +187,14 @@ SELECT CASE
            WHEN lang_num < 10 THEN '<10 Languages'
            WHEN lang_num BETWEEN 10 AND 30 THEN '10-30 Languages'
            ELSE '>30 Languages'
-       END as language_bucket,
-       AVG(user_rating) as avg_rating
+       END as LanguageBucket,
+       AVG(user_rating) as AvgRating
 FROM AppleStore
-GROUP BY language_bucket
-ORDER BY avg_rating DESC;
+GROUP BY LanguageBucket
+ORDER BY AvgRating DESC;
 ```
 Output:
-| language_bucket    | avg_rating            |
+| LanguageBucket    | AvgRating            |
 |-------------------- |-----------------------|
 | 10-30 Languages    | 4.1305120910384066   |
 | >30 Languages      | 3.7777777777777777   |
@@ -204,14 +204,14 @@ Output:
 Identify genres with low average ratings in the `AppleStore` table.
 
 ```sql
-SELECT prime_genre, AVG(user_rating) as avg_rating
+SELECT prime_genre, AVG(user_rating) as AvgRating
 FROM AppleStore
-GROUP BY prime_genre
-ORDER BY avg_rating DESC
+GROUP BY PrimeGenre
+ORDER BY AvgRating DESC
 LIMIT 10;
 ```
 Output:
-| prime_genre        | avg_rating           |
+| PrimeGenre        | AvgRating           |
 |--------------------|----------------------|
 | Productivity       | 4.00561797752809    |
 | Music              | 3.9782608695652173  |
@@ -231,15 +231,15 @@ SELECT CASE
            WHEN LENGTH(b.app_desc) < 500 THEN 'Short'
            WHEN LENGTH(b.app_desc) BETWEEN 500 AND 1000 THEN 'Medium'
            ELSE 'Long'
-       END as description_length_bucket,
-       AVG(a.user_rating) as average_rating
+       END as DescriptionLengthBucket,
+       AVG(a.user_rating) as AverageRating
 FROM AppleStore as a
 JOIN appleStore_description_combined as b ON a.id = b.id
-GROUP BY description_length_bucket
-ORDER BY average_rating DESC;
+GROUP BY DescriptionLengthBucket
+ORDER BY AverageRating DESC;
 ```
 Output:
-| description_length_bucket | average_rating         |
+| DescriptionLengthBucket | AverageRating         |
 |---------------------------|------------------------|
 | Long                      | 3.855946944988041     |
 | Medium                    | 3.232809430255403     |
