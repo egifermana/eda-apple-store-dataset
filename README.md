@@ -281,7 +281,8 @@ Retrieve the top-rated apps for each genre based on user ratings.
 SELECT prime_genre, track_name, user_rating
 FROM (
       SELECT prime_genre, track_name, user_rating,
-      RANK() OVER(PARTITION by prime_genre ORDER BY user_rating DESC, rating_count_tot DESC) as rank
+      RANK() OVER(PARTITION by prime_genre
+      ORDER BY user_rating DESC, rating_count_tot DESC) as rank
       FROM AppleStore) As a 
 WHERE a.rank = 1;
 ```
