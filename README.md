@@ -66,7 +66,6 @@ GROUP BY prime_genre
 ORDER BY num_apps DESC;
 ```
 
-Insights
 1. Most popular genre: Games is the most popular genre with 3862 apps, followed by Entertainment with 535 apps
 2. Distribution: The number of apps varies greatly across genres, with Games having significantly more apps than most other genres
 3. Less popular genres: Some genres have relatively few apps, such as Catalogs with only 10 apps
@@ -108,8 +107,6 @@ SELECT MIN(user_rating) as min_rating,
        AVG(user_rating) as avg_rating
 FROM AppleStore;
 ```
-
-Insights:
 1. The average rating across all apps is 3.53
 2. The minimum possible rating is 0 and the maximum possible rating is 5.
 
@@ -130,8 +127,6 @@ FROM AppleStore
 GROUP BY price_bin_start
 ORDER BY price_bin_start;
 ```
-
-Insights:
 1. **Lower Price Ranges (up to $2)**: The majority of apps fall within the lower price range, specifically between $0 and $2, with 4056 apps
 2. **Moderate Price Ranges ($2 to $9.99)**: There is a consistent distribution of apps in the moderate price ranges, with notable peaks between $2.99 to $3.99 (728 apps), $4.99 to $5.99 (394 apps), and $6.99 to $7.99 (166 apps)
 3. **Higher Price Ranges ($10 and above)**: As the price increases, the number of apps decreases. There are still apps available in higher price ranges, but their numbers are significantly lower
@@ -192,8 +187,6 @@ SELECT CASE
 FROM AppleStore
 GROUP BY app_type;
 ```
-
-Insights:
 1. **Paid apps have higher average rating**: Paid apps have an average rating of 3.72, while free apps have an average rating of 3.38
 2. **Potential reasons**: There are several possible reasons for this difference. Paid apps may be of higher quality on average, or users may be more likely to rate paid apps that they have purchased.
 
@@ -217,8 +210,6 @@ FROM AppleStore
 GROUP BY language_bucket
 ORDER BY avg_rating DESC;
 ```
-
-Insights:
 1. **Apps with 10-30 languages have the highest average rating (4.13), followed by apps with less than 10 languages (3.37), and then apps with more than 30 languages (3.78)**. This suggests that there may be a sweet spot for the number of languages an app should support in order to maximize its average rating
 2. **Apps with more languages don't necessarily have higher ratings**. This could be because apps with more languages tend to cater to a wider audience, which could lead to a lower average rating as there is a greater chance of including users who are not satisfied with the app
 3. **Potential for further analysis**: It would be interesting to investigate the reasons behind these differences in average rating. For example, are there specific language groups that tend to have higher or lower ratings? Do apps with more languages tend to be more complex, which could lead to lower ratings?
@@ -240,8 +231,6 @@ GROUP BY prime_genre
 ORDER BY avg_rating DESC
 LIMIT 10;
 ```
-
-Insights:
 1. **Top rated genre**: Productivity has the highest average rating with 4.0056
 2. **Distribution**: Average rating varies across genres, with Productivity standing out
 3. **Lower rated genres**: Some genres have lower average ratings, like Travel with 3.3765
@@ -275,8 +264,6 @@ JOIN appleStore_description_combined as b ON a.id = b.id
 GROUP BY description_length_bucket
 ORDER BY avg_rating DESC;
 ```
-
-Insights:
 1. **Apps with longer descriptions have higher average ratings**. This could be because longer descriptions provide more information for users to base their ratings on, or because they are written by developers who are more invested in their apps
 2. **There is a potential for further analysis**. It would be interesting to investigate the relationship between description length and rating in more detail. For example, you could look at whether this trend is more pronounced in certain genres, or whether longer descriptions simply provide more information for users to base their ratings on.
 
@@ -298,8 +285,6 @@ FROM (
       FROM AppleStore) As a 
 WHERE a.rank = 1;
 ```
-
-Insights:
 1. **User Ratings: All Highly Rated Apps**. Every app listed has a user rating of 5, indicating a high level of user satisfaction across diverse genres, This suggests that users are generally finding apps that meet their needs and expectations.
 2. **Variety of Genres Represented**: The output includes apps from 20 different genres, showcasing a wide range of interests and needs being met, This demonstrates the breadth of the app market and the potential to cater to diverse user preferences.
 3. **Specific App Highlights**: Popular and Practical Apps: Productivity apps (VPN Proxy Master), financial apps (Credit Karma), and health and fitness apps (Yoga Studio) are among the highly rated options, suggesting their practical value to users, Entertainment and Lifestyle: Entertainment apps (Bruh-Button, Head Soccer) and lifestyle apps (ipsy, We Heart It) also have high ratings, reflecting their ability to engage and connect with users, Niche Categories: Even niche genres like Catalogs (CPlus for Craigslist) and Medical (Blink Health) have top-rated apps, indicating opportunities for success in specialized areas.
