@@ -25,8 +25,8 @@ UNION ALL
 SELECT * FROM appleStore_description4;
 ```
 
-## Exploratory Data Analysis
-### Unique App IDs
+# Exploratory Data Analysis
+## Unique App IDs
 Check the number of unique apps in both `AppleStore` and `appleStore_description_combined` tables.
 
 ```sql
@@ -40,7 +40,7 @@ Output:
 ```output
 7197
 ```
-### Missing Values
+## Missing Values
 Identify missing values in key fields of both tables.
 
 ```sql
@@ -56,7 +56,7 @@ Output:
 ```output
 0
 ```
-### Number of Apps per Genre
+## Number of Apps per Genre
 Find out the number of apps per genre in the `AppleStore` table.
 
 ```sql
@@ -98,7 +98,7 @@ Output:
 | Medical            | 23     |
 | Catalogs           | 10     |
 
-### Overview of App Ratings
+## Overview of App Ratings
 Get an overview of the app ratings, including minimum, maximum, and average ratings.
 
 ```sql
@@ -115,7 +115,7 @@ Output:
 |-----------|-----------|------------------------|
 | 0         | 5         | 3.526955675976101     |
 
-### Distribution of App Prices
+## Distribution of App Prices
 Explore the distribution of app prices in the `AppleStore` table.
 
 ```sql
@@ -175,8 +175,8 @@ Output:
 | 299.99        | 301.99      | 1       |
 
 
-## Data Analysis
-### Paid vs. Free Apps
+# Data Analysis
+## Paid vs. Free Apps
 Determine whether paid apps have higher ratings than free apps.
 ```sql
 SELECT CASE
@@ -196,7 +196,7 @@ Output:
 | Free     | 3.3767258382642997     |
 | Paid     | 3.720948742438714      |
 
-### Ratings Based on Supported Languages
+## Ratings Based on Supported Languages
 Check if apps with more supported languages have higher ratings.
 
 ```sql
@@ -221,7 +221,7 @@ Output:
 | >30 Languages      | 3.7777777777777777   |
 | <10 Languages      | 3.368327402135231    |
 
-### Genres with Low Ratings
+## Genres with Low Ratings
 Identify genres with low average ratings in the `AppleStore` table.
 
 ```sql
@@ -250,7 +250,7 @@ Output:
 | Reference          | 3.453125             |
 | Travel             | 3.376543209876543   |
 
-### Description Length and User Rating Correlation
+## Description Length and User Rating Correlation
 Investigate if there is a correlation between the length of the app description and user ratings.
 ```sql
 SELECT CASE
@@ -275,7 +275,7 @@ Output:
 | Medium                    | 3.232809430255403     |
 | Short                     | 2.533613445378151     |
 
-### Top-rated Apps for Each Genre
+## Top-rated Apps for Each Genre
 Retrieve the top-rated apps for each genre based on user ratings.
 ```sql
 SELECT prime_genre, track_name, user_rating
