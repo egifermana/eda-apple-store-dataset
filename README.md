@@ -62,13 +62,13 @@ Output:
 Find out the number of apps per genre in the `AppleStore` table.
 
 ```sql
-SELECT prime_genre, COUNT(*) as NumApps
+SELECT prime_genre, COUNT(*) as num_apps
 FROM AppleStore
-GROUP BY PrimeGenre
+GROUP BY prime_genre
 ORDER BY NumApps DESC;
 ```
 Output:
-| PrimeGenre        | NumApp |
+| prime_genre        | num_app |
 |--------------------|--------|
 | Games              | 3862   |
 | Entertainment      | 535    |
@@ -98,13 +98,13 @@ Output:
 Get an overview of the app ratings, including minimum, maximum, and average ratings.
 
 ```sql
-SELECT MIN(user_rating) as MinRating,
-       MAX(user_rating) as MaxRating,
-       AVG(user_rating) as AvgRating
+SELECT MIN(user_rating) as min_rating,
+       MAX(user_rating) as max_rating,
+       AVG(user_rating) as avg_rating
 FROM AppleStore;
 ```
 Output:
-| MinRating | MaxRating | AvgRating              |
+| min_rating | max_rating | avg_rating              |
 |-----------|-----------|------------------------|
 | 0         | 5         | 3.526955675976101     |
 
@@ -113,12 +113,12 @@ Explore the distribution of app prices in the `AppleStore` table.
 
 ```sql
 SELECT
-    (price / 2) * 2 as PriceBinStart,
-    ((price / 2) * 2) + 2 AS PriceBinEnd,
-    COUNT(*) as NumApps
+    (price / 2) * 2 as price_bin_start,
+    ((price / 2) * 2) + 2 AS price_bin_end,
+    COUNT(*) as num_apps
 FROM AppleStore
-GROUP BY PriceBinStart
-ORDER BY PriceBinStart;
+GROUP BY price_bin_start
+ORDER BY price_bin_start;
 ```
 Output:
 | PriceBinStart | PriceBinEnd | NumApps |
@@ -168,13 +168,13 @@ Determine whether paid apps have higher ratings than free apps.
 SELECT CASE
            WHEN price > 0 THEN 'Paid'
            ELSE 'Free'
-       END as AppType,
-       AVG(user_rating) as AvgRating
+       END as app_type,
+       AVG(user_rating) as avg_rating
 FROM AppleStore
-GROUP BY App_Type;
+GROUP BY app_type;
 ```
 Output:
-| AppType | AvgRating              |
+| app_type | avg_rating              |
 |----------|-------------------------|
 | Free     | 3.3767258382642997     |
 | Paid     | 3.720948742438714      |
@@ -187,14 +187,14 @@ SELECT CASE
            WHEN lang_num < 10 THEN '<10 Languages'
            WHEN lang_num BETWEEN 10 AND 30 THEN '10-30 Languages'
            ELSE '>30 Languages'
-       END as LanguageBucket,
-       AVG(user_rating) as AvgRating
+       END as language_bucket,
+       AVG(user_rating) as avg_rating
 FROM AppleStore
-GROUP BY LanguageBucket
-ORDER BY AvgRating DESC;
+GROUP BY language_bucket
+ORDER BY avg_rating DESC;
 ```
 Output:
-| LanguageBucket    | AvgRating            |
+| language_bucket    | avg_rating            |
 |-------------------- |-----------------------|
 | 10-30 Languages    | 4.1305120910384066   |
 | >30 Languages      | 3.7777777777777777   |
@@ -204,14 +204,14 @@ Output:
 Identify genres with low average ratings in the `AppleStore` table.
 
 ```sql
-SELECT prime_genre, AVG(user_rating) as AvgRating
+SELECT prime_genre, AVG(user_rating) as avg_rating
 FROM AppleStore
-GROUP BY PrimeGenre
-ORDER BY AvgRating DESC
+GROUP BY prime_genre
+ORDER BY avg_rating DESC
 LIMIT 10;
 ```
 Output:
-| PrimeGenre        | AvgRating           |
+| prime_genre        | avg_rating           |
 |--------------------|----------------------|
 | Productivity       | 4.00561797752809    |
 | Music              | 3.9782608695652173  |
@@ -231,15 +231,15 @@ SELECT CASE
            WHEN LENGTH(b.app_desc) < 500 THEN 'Short'
            WHEN LENGTH(b.app_desc) BETWEEN 500 AND 1000 THEN 'Medium'
            ELSE 'Long'
-       END as DescriptionLengthBucket,
-       AVG(a.user_rating) as AverageRating
+       END as description_length_bucket,
+       AVG(a.user_rating) as avg_rating
 FROM AppleStore as a
 JOIN appleStore_description_combined as b ON a.id = b.id
-GROUP BY DescriptionLengthBucket
-ORDER BY AverageRating DESC;
+GROUP BY description_length_bucket
+ORDER BY avg_rating DESC;
 ```
 Output:
-| DescriptionLengthBucket | AverageRating         |
+| description_length_bucket | avg_rating         |
 |---------------------------|------------------------|
 | Long                      | 3.855946944988041     |
 | Medium                    | 3.232809430255403     |
