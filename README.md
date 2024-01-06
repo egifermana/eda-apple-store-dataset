@@ -65,10 +65,10 @@ Find out the number of apps per genre in the `AppleStore` table.
 SELECT prime_genre, COUNT(*) as num_apps
 FROM AppleStore
 GROUP BY prime_genre
-ORDER BY NumApps DESC;
+ORDER BY num_apps DESC;
 ```
 Output:
-| prime_genre        | num_app |
+| prime_genre        | num_apps |
 |--------------------|--------|
 | Games              | 3862   |
 | Entertainment      | 535    |
