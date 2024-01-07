@@ -22,12 +22,13 @@ This repository contains an exploratory data analysis (EDA) on Apple Store Apps 
 - [Top-rated Apps for Each Genre](#top-rated-apps-for-each-genre)
 
 ## Key Insights
-* Paid apps generally have better ratings than free apps
-* Apps supporting between 10-30 languages tend to have higher ratings
-* Finance and book apps have lower average ratings
-* Apps with longer descriptions tend to have better ratings
-* A new app should aim for an average rating above 3.5
-* Games and Entertainment genres face high competition.
+The following key insights have been derived from the exploratory data analysis:
+1. **Paid vs Free Apps**: Paid apps tend to have higher ratings than free apps
+2. **Ratings Based on Supported Languages**: Apps supporting 10-30 languages achieve higher ratings compared to those with fewer or more supported languages
+3. **Genres with Low Ratings**: Finance and book apps exhibit lower average ratings
+4. **Description Length and User Ratings Correlation**: Apps with longer descriptions generally receive better ratings
+5. **Optimal Average Rating**: Aspiring developers should aim for an average rating above 3.5
+6. **Competition in Games and Entertainment Genres**: Games and entertainment genres face high competition in the app market.
 
 ## Data Integration
 To facilitate analysis, the project combines data from multiple files into a unified table named `appleStore_description_combined`. This consolidated table contains data from `appleStore_description1`, `appleStore_description2`, `appleStore_description3`, and `appleStore_description4`.
