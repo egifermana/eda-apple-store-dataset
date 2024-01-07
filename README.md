@@ -9,6 +9,17 @@ This repository contains an exploratory data analysis (EDA) on Apple Store Apps 
 - [Key Insights](#key-insights)
 - [Data Integration](#data-integration)
 - [Exploratory Data Analysis](#exploratory-data-analysis)
+- [Unique App IDs](#unique-app-ids)
+- [Missing Values](#missing-values)
+- [Number of Apps per Genre](#number-of-apps-per-genre)
+- [Overview of App Ratings](#overview-of-app-ratings)
+- [Distribution of App Prices](#distribution-of-app-prices)
+- [Data Analysis](#data-analysis)
+- [Paid vs Free Apps](#paid-vs-free-apps)
+- [Ratings Based on Supported Languages](#ratings-based-on-supported-languages)
+- [Genres with Low Ratings](#genres-with-low-ratings)
+- [Description Length and User Rating Correlation](#description-length-and-user-rating-correlation)
+- [Top-rated Apps for Each Genre](#top-rated-apps-for-each-genre)
 
 ## Key Insights
 * Paid apps generally have better ratings than free apps
@@ -183,7 +194,7 @@ Output:
 
 
 # Data Analysis
-## Paid vs. Free Apps
+## Paid vs Free Apps
 Determine whether paid apps have higher ratings than free apps.
 ```sql
 SELECT CASE
