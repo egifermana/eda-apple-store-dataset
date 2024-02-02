@@ -3,24 +3,6 @@
 ## Overview
 This repository contains an exploratory data analysis (EDA) on Apple Store Apps data using SQL. The analysis includes various SQL queries to gain insights into the dataset, such as checking missing values, exploring the distribution of app genres, reviewing app ratings, and more.
 
-## Table of Contents
-
-- [Overview](#overview)
-- [Key Insights](#key-insights)
-- [Data Integration](#data-integration)
-- [Exploratory Data Analysis](#exploratory-data-analysis)
-- [Unique App IDs](#unique-app-ids)
-- [Missing Values](#missing-values)
-- [Number of Apps per Genre](#number-of-apps-per-genre)
-- [Overview of App Ratings](#overview-of-app-ratings)
-- [Distribution of App Prices](#distribution-of-app-prices)
-- [Data Analysis](#data-analysis)
-- [Paid vs Free Apps](#paid-vs-free-apps)
-- [Ratings Based on Supported Languages](#ratings-based-on-supported-languages)
-- [Genres with Low Ratings](#genres-with-low-ratings)
-- [Description Length and User Rating Correlation](#description-length-and-user-rating-correlation)
-- [Top-rated Apps for Each Genre](#top-rated-apps-for-each-genre)
-
 ## Key Insights
 The following key insights have been derived from the exploratory data analysis:
 1. **Paid vs Free Apps**: Paid apps tend to have higher ratings than free apps
