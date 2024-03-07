@@ -31,7 +31,7 @@ SELECT * FROM appleStore_description4;
 Check the number of unique apps in both `AppleStore` and `appleStore_description_combined` tables.
 
 ```sql
-SELECT COUNT(DISTINCT id) as UniqueAppIDs
+SELECT COUNT(DISTINCT id) AS UniqueAppIDs
 FROM AppleStore;
 
 SELECT COUNT(DISTINCT id) as UniqueAppIDs
@@ -45,11 +45,11 @@ Output:
 Identify missing values in key fields of both tables.
 
 ```sql
-SELECT COUNT(*) as MissingValues
+SELECT COUNT(*) AS MissingValues
 FROM AppleStore
 WHERE track_name IS NULL OR user_rating IS NULL OR prime_genre IS NULL;
 
-SELECT COUNT(*) as MissingValues
+SELECT COUNT(*) AS MissingValues
 FROM appleStore_description_combined
 WHERE app_desc IS NULL;
 ```
@@ -103,9 +103,9 @@ Output:
 Get an overview of the app ratings, including minimum, maximum, and average ratings.
 
 ```sql
-SELECT MIN(user_rating) as min_rating,
-       MAX(user_rating) as max_rating,
-       AVG(user_rating) as avg_rating
+SELECT MIN(user_rating) AS min_rating,
+       MAX(user_rating) AS max_rating,
+       AVG(user_rating) AS avg_rating
 FROM AppleStore;
 ```
 * The average rating across all apps is 3.53
@@ -121,9 +121,9 @@ Explore the distribution of app prices in the `AppleStore` table.
 
 ```sql
 SELECT
-    (price / 2) * 2 as price_bin_start,
+    (price / 2) * 2 AS price_bin_start,
     ((price / 2) * 2) + 2 AS price_bin_end,
-    COUNT(*) as num_apps
+    COUNT(*) AS num_apps
 FROM AppleStore
 GROUP BY price_bin_start
 ORDER BY price_bin_start;
@@ -183,8 +183,8 @@ Determine whether paid apps have higher ratings than free apps.
 SELECT CASE
            WHEN price > 0 THEN 'Paid'
            ELSE 'Free'
-       END as app_type,
-       AVG(user_rating) as avg_rating
+       END AS app_type,
+       AVG(user_rating) AS avg_rating
 FROM AppleStore
 GROUP BY app_type;
 ```
@@ -206,7 +206,7 @@ SELECT CASE
            WHEN lang_num BETWEEN 10 AND 30 THEN '10-30 Languages'
            ELSE '>30 Languages'
        END as language_bucket,
-       AVG(user_rating) as avg_rating
+       AVG(user_rating) AS avg_rating
 FROM AppleStore
 GROUP BY language_bucket
 ORDER BY avg_rating DESC;
@@ -226,7 +226,7 @@ Output:
 Identify genres with low average ratings in the `AppleStore` table.
 
 ```sql
-SELECT prime_genre, AVG(user_rating) as avg_rating
+SELECT prime_genre, AVG(user_rating) AS avg_rating
 FROM AppleStore
 GROUP BY prime_genre
 ORDER BY avg_rating DESC
@@ -258,10 +258,10 @@ SELECT CASE
            WHEN LENGTH(b.app_desc) < 500 THEN 'Short'
            WHEN LENGTH(b.app_desc) BETWEEN 500 AND 1000 THEN 'Medium'
            ELSE 'Long'
-       END as description_length_bucket,
-       AVG(a.user_rating) as avg_rating
-FROM AppleStore as a
-JOIN appleStore_description_combined as b ON a.id = b.id
+       END AS description_length_bucket,
+       AVG(a.user_rating) AS avg_rating
+FROM AppleStore AS a
+JOIN appleStore_description_combined AS b ON a.id = b.id
 GROUP BY description_length_bucket
 ORDER BY avg_rating DESC;
 ```
@@ -283,8 +283,8 @@ SELECT prime_genre, track_name, user_rating
 FROM (
       SELECT prime_genre, track_name, user_rating,
       RANK() OVER(PARTITION by prime_genre
-      ORDER BY user_rating DESC, rating_count_tot DESC) as rank
-      FROM AppleStore) As a 
+      ORDER BY user_rating DESC, rating_count_tot DESC) AS rank
+      FROM AppleStore) AS a 
 WHERE a.rank = 1;
 ```
 * **User Ratings: All Highly Rated Apps**. Every app listed has a user rating of 5, indicating a high level of user satisfaction across diverse genres, This suggests that users are generally finding apps that meet their needs and expectations.
